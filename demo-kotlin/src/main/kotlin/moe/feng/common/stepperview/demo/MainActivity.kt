@@ -3,11 +3,11 @@ package moe.feng.common.stepperview.demo
 import android.app.AlertDialog
 import android.net.Uri
 import android.os.Bundle
-import android.support.customtabs.CustomTabsIntent
-import android.support.design.widget.NavigationView
-import android.support.v4.app.Fragment
-import android.support.v4.widget.DrawerLayout
-import android.support.v7.app.AppCompatActivity
+import androidx.browser.customtabs.CustomTabsIntent
+import com.google.android.material.navigation.NavigationView
+import androidx.fragment.app.Fragment
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.appcompat.app.AppCompatActivity
 import android.view.MenuItem
 
 import moe.feng.alipay.zerosdk.AlipayZeroSdk
@@ -16,7 +16,7 @@ import moe.feng.common.stepperview.demo.fragment.VerticalStepperDemoFragment
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var mDrawerLayout: DrawerLayout
+    private lateinit var mDrawerLayout: androidx.drawerlayout.widget.DrawerLayout
     private lateinit var mNavigationView: NavigationView
 
     private val mVerticalStepperDemoFragment = VerticalStepperDemoFragment()
@@ -86,7 +86,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun replaceFragment(fragment: Fragment) {
+    private fun replaceFragment(fragment: androidx.fragment.app.Fragment) {
         supportFragmentManager.beginTransaction().replace(R.id.container, fragment).commit()
     }
 

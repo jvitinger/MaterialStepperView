@@ -1,8 +1,8 @@
 package moe.feng.common.stepperview.demo.fragment
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v4.app.Fragment
+import com.google.android.material.snackbar.Snackbar
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +11,7 @@ import android.widget.Button
 import moe.feng.common.stepperview.VerticalStepperItemView
 import moe.feng.common.stepperview.demo.R
 
-class VerticalStepperDemoFragment : Fragment() {
+class VerticalStepperDemoFragment : androidx.fragment.app.Fragment() {
 
     private val mSteppers = arrayOfNulls<VerticalStepperItemView>(3)
     private lateinit var mNextBtn0: Button

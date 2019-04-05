@@ -9,7 +9,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.*;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.*;
@@ -21,6 +20,14 @@ import android.widget.TextView;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 
 public class VerticalStepperItemView extends FrameLayout {
 
@@ -42,7 +49,8 @@ public class VerticalStepperItemView extends FrameLayout {
 	 * Step state
 	 */
 	private CharSequence mTitle;
-	private @Nullable CharSequence mSummary, mSummaryFinished = null;
+	private @Nullable
+	CharSequence mSummary, mSummaryFinished = null;
 	private int mIndex = 1;
 	private boolean isLastStep = false;
 	private int mState = STATE_NORMAL;
@@ -748,7 +756,8 @@ public class VerticalStepperItemView extends FrameLayout {
 	 *
 	 * @return Activated Point Color
 	 */
-	public @ColorInt int getActivatedColor() {
+	public @ColorInt
+	int getActivatedColor() {
 		return mActivatedColor;
 	}
 

@@ -2,8 +2,8 @@ package moe.feng.common.stepperview.demo.fragment
 
 import android.content.Context
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v4.app.Fragment
+import com.google.android.material.snackbar.Snackbar
+import androidx.fragment.app.Fragment
 import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +16,7 @@ import moe.feng.common.stepperview.VerticalStepperItemView
 import moe.feng.common.stepperview.VerticalStepperView
 import moe.feng.common.stepperview.demo.R
 
-class VerticalStepperAdapterDemoFragment : Fragment(), IStepperAdapter {
+class VerticalStepperAdapterDemoFragment : androidx.fragment.app.Fragment(), IStepperAdapter {
 
     private lateinit var mVerticalStepperView: VerticalStepperView
 
