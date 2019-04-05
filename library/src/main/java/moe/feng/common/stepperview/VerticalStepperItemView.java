@@ -11,6 +11,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.*;
 import android.view.animation.OvershootInterpolator;
 import android.widget.FrameLayout;
@@ -64,6 +65,7 @@ public class VerticalStepperItemView extends FrameLayout {
 	private Drawable mDoneIcon;
 	private boolean mAnimationEnabled = true;
 	private boolean mAlwaysShowSummary = false;
+	private int mTitleSize, mSummarySize;
 
 	/**
 	 * The bind views
@@ -94,8 +96,10 @@ public class VerticalStepperItemView extends FrameLayout {
 					defStyleAttr, R.style.Widget_Stepper);
 
 			mTitle = a.getString(R.styleable.VerticalStepperItemView_step_title);
+			mTitleSize = a.getDimensionPixelSize(R.styleable.VerticalStepperItemView_step_title_size, 0);
 			mSummary = a.getString(R.styleable.VerticalStepperItemView_step_summary);
 			mSummaryFinished = a.getString(R.styleable.VerticalStepperItemView_step_summary_done);
+			mSummarySize = a.getDimensionPixelSize(R.styleable.VerticalStepperItemView_step_summary_size, 0);
 			mIndex = a.getInt(R.styleable.VerticalStepperItemView_step_index, 1);
 			mState = a.getInt(R.styleable.VerticalStepperItemView_step_state, STATE_NORMAL);
 			isLastStep = a.getBoolean(R.styleable.VerticalStepperItemView_step_is_last, false);
@@ -123,6 +127,7 @@ public class VerticalStepperItemView extends FrameLayout {
 		setAnimationEnabled(mAnimationEnabled);
 		setLineColor(mLineColor);
 		setErrorColor(mErrorColor);
+		setSummarySize(mSummarySize);
 	}
 
 	@Override
@@ -228,6 +233,8 @@ public class VerticalStepperItemView extends FrameLayout {
 								R.style.TextAppearance_Widget_Stepper_Selected
 				));
 
+		setTitleSize(mTitleSize);
+
 		// Update error state
 		if (mErrorText != null) {
 			mTitleColorAnimator = ViewUtils.createArgbAnimator(
@@ -315,6 +322,18 @@ public class VerticalStepperItemView extends FrameLayout {
 	 */
 	public @NonNull CharSequence getTitle() {
 		return mTitle;
+	}
+
+	private void setTitleSize(int titleSize) {
+		if (titleSize > 0) {
+			mTitleText.setTextSize(TypedValue.COMPLEX_UNIT_PX, titleSize);
+		}
+	}
+
+	private void setSummarySize(int summarySize) {
+		if (summarySize > 0) {
+			mSummaryText.setTextSize(TypedValue.COMPLEX_UNIT_PX, summarySize);
+		}
 	}
 
     /**

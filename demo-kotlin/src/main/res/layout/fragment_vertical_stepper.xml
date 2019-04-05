@@ -121,8 +121,10 @@
 				android:layout_marginTop="8dp"
 				app:step_index="3"
 				app:step_title="Step 3"
+                app:step_title_size="16sp"
 				app:step_summary="Last step"
 				app:step_summary_done="Last step. Done"
+                app:step_summary_size="16dp"
 				app:step_is_last="true">
 
 			<LinearLayout
